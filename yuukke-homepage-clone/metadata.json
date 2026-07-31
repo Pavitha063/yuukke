@@ -1,0 +1,6 @@
+{
+  "name": "Yuukke Homepage Clone",
+  "description": "A exact clone of the Yuukke platform homepage celebrating women builders, products, services, and impact.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
