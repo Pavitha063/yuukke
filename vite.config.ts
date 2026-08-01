@@ -66,6 +66,9 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   return {
     plugins: [react(), tailwindcss(), elevenLabsProxy(env.ELEVENLABS_API_KEY, env.ELEVENLABS_VOICE_ID), geminiProxy(env.GEMINI_API_KEY, env.GEMINI_MODEL || 'gemini-3.6-flash')],
+    build: {
+      target: 'esnext',
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
