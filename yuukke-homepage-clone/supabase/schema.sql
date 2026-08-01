@@ -31,3 +31,16 @@ create table if not exists public.portal_inventory (
 alter table public.portal_inventory enable row level security;
 drop policy if exists "Demo portal may manage its inventory" on public.portal_inventory;
 create policy "Demo portal may manage its inventory" on public.portal_inventory for all using (true) with check (true);
+
+create table if not exists public.portal_chat_messages (
+  id uuid primary key default gen_random_uuid(),
+  entrepreneur_id text not null default 'demo_lakshmi',
+  role text not null check (role in ('user', 'assistant')),
+  content text not null,
+  agent_tag text,
+  created_at timestamptz not null default now()
+);
+
+alter table public.portal_chat_messages enable row level security;
+drop policy if exists "Demo portal may manage its chat" on public.portal_chat_messages;
+create policy "Demo portal may manage its chat" on public.portal_chat_messages for all using (true) with check (true);
